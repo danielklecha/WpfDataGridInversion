@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfDataGridInversion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDataGridInversion"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <DataGrid
+            ItemsSource="{Binding Records}"
+            CanUserAddRows="False"
+            CanUserSortColumns="False"
+            CanUserResizeColumns="False"
+            CanUserResizeRows="False"
+            CanUserReorderColumns="False"    
+            SelectionMode="Single"
+            SelectionUnit="Cell"
+            AutoGenerateColumns="True"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            GridLinesVisibility="All"
+            VirtualizingStackPanel.VirtualizationMode="Standard"
+            HeadersVisibility="All"
+            Style="{StaticResource InvertedMetroDataGrid}"
+            >
+        </DataGrid>
+
+        <DataGrid
+            ItemsSource="{Binding Records}"
+            CanUserAddRows="False"
+            CanUserSortColumns="False"
+            CanUserResizeColumns="False"
+            CanUserResizeRows="False"
+            CanUserReorderColumns="False"    
+            SelectionMode="Single"
+            SelectionUnit="Cell"
+            AutoGenerateColumns="True"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            GridLinesVisibility="All"
+            VirtualizingStackPanel.VirtualizationMode="Standard"
+            HeadersVisibility="All"
+            RowHeaderStyle="{StaticResource InvertedMetroDataGridRowHeader}"
+            ColumnHeaderStyle="{StaticResource InvertedMetroDataGridColumnHeader}"
+            CellStyle="{StaticResource InvertedMetroDataGridCell}"
+            >
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1, 0, 0, 1, 0, 0" />
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+        </DataGrid>
+    </StackPanel>
+</Window>
